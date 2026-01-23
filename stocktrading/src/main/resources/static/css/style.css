@@ -1,0 +1,359 @@
+/* =======================
+   GLOBAL RESET & FONT
+======================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* =======================
+   BACKGROUND
+======================= */
+body {
+    min-height: 100vh;
+    color: #f8fafc;
+    background:
+        linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
+        url("../images/bg_image_trade.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* =======================
+   AUTH (LOGIN / REGISTER)
+======================= */
+.auth-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-card,
+.container {
+    width: 420px;
+    padding: 36px;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.14);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.25);
+    box-shadow: 0 35px 70px rgba(0,0,0,0.6);
+    animation: fadeUp 0.7s ease;
+}
+
+.auth-card h2,
+.container h2 {
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.auth-subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #cbd5e1;
+    margin-bottom: 24px;
+}
+
+/* =======================
+   INPUTS & SELECT
+======================= */
+input,
+select {
+    width: 100%;
+    padding: 14px 16px;
+    margin: 14px 0;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background: rgba(255,255,255,0.22);
+    color: #ffffff;
+    font-size: 15px;
+}
+
+/* FIX: dropdown white issue */
+select option {
+    background: #0f172a;
+    color: #ffffff;
+}
+
+input::placeholder {
+    color: #cbd5e1;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background: rgba(255,255,255,0.32);
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.35);
+}
+
+/* =======================
+   BUTTONS
+======================= */
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 18px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 35px rgba(37,99,235,0.55);
+}
+
+button.sell {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+/* =======================
+   LINKS
+======================= */
+a {
+    display: block;
+    text-align: center;
+    margin-top: 22px;
+    font-size: 14px;
+    color: #60a5fa;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* =======================
+   DASHBOARD HEADER
+======================= */
+.dashboard-header {
+    width: 100%;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(14px);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+
+    /* ✅ NEW: space below heading */
+    margin-bottom: 45px;
+}
+
+/* DASHBOARD TITLE */
+.dashboard-header h1,
+.dashboard-header h2 {
+    font-size: 26px;
+    font-weight: 700;
+
+    /* ✅ NEW: small gap under heading */
+    margin-bottom: 6px;
+}
+
+/* BALANCE SECTION */
+.dashboard-balance,
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* BALANCE COLOR */
+#balance {
+    color: #22c55e;
+}
+
+
+/* =======================
+   LOGOUT BUTTON
+======================= */
+.logout-btn {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    opacity: 0.9;
+}
+
+/* =======================
+   DASHBOARD LAYOUT
+======================= */
+.dashboard-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 80px auto;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 32px;
+}
+
+/* =======================
+   DASHBOARD CARDS
+======================= */
+.card {
+    padding: 48px 28px;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+    cursor: pointer;
+    transition: all 0.35s ease;
+    text-align: center;
+}
+
+.card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 15px;
+    opacity: 0.85;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.05);
+    background: rgba(59,130,246,0.28);
+}
+
+.card.logout {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+/* =======================
+   TABLE CONTAINER
+======================= */
+.table-container {
+    width: 90%;
+    max-width: 950px;
+    margin: 80px auto;
+    padding: 36px;
+    border-radius: 24px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 35px 70px rgba(0,0,0,0.6);
+}
+
+.table-container h2 {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+/* =======================
+   TABLE STYLE
+======================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    padding: 14px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #ffffff;
+    font-size: 14px;
+}
+
+td {
+    padding: 14px;
+    text-align: center;
+    font-size: 14px;
+    background: rgba(255,255,255,0.16);
+}
+
+tr:nth-child(even) td {
+    background: rgba(255,255,255,0.22);
+}
+
+tbody tr:hover td {
+    background: rgba(59,130,246,0.28);
+}
+
+/* =======================
+   PROFIT / LOSS
+======================= */
+td.profit {
+    color: #22c55e;
+    font-weight: 600;
+}
+
+td.loss {
+    color: #ef4444;
+    font-weight: 600;
+}
+
+/* =======================
+   ANIMATION
+======================= */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* =======================
+   TRADE PAGE LAYOUT
+======================= */
+
+.trade-layout {
+    width: 90%;
+    max-width: 1400px;
+    margin: 60px auto;
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* LEFT CARD */
+.trade-card {
+    padding: 36px;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.14);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 35px 70px rgba(0,0,0,0.65);
+}
+
+/* RIGHT CHART */
+.trade-chart {
+    min-height: 520px;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 25px 55px rgba(0,0,0,0.55);
+    padding: 10px;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 1000px) {
+    .trade-layout {
+        grid-template-columns: 1fr;
+    }
+}

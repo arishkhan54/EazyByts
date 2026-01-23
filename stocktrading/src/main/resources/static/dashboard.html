@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="dashboard-bg">
+
+<div class="dashboard-container">
+
+    <div class="dashboard-header">
+        <h1 class="dashboard-title">Stock Trading Dashboard</h1>
+
+        <div class="dashboard-balance">
+            Balance: <span id="balance">₹ 0</span>
+        </div>
+    </div>
+
+    <div class="card-grid">
+        <div class="card" onclick="go('trade.html')">
+            <h3>Buy / Sell</h3>
+            <p>Trade stocks</p>
+        </div>
+
+        <div class="card" onclick="go('transactions.html')">
+            <h3>Transactions</h3>
+            <p>Trade history</p>
+        </div>
+
+        <div class="card" onclick="go('portfolio.html')">
+            <h3>Portfolio</h3>
+            <p>Your investments</p>
+        </div>
+
+        <div class="card logout" onclick="logout()">
+            <h3>Logout</h3>
+            <p>Exit session</p>
+        </div>
+    </div>
+
+</div>
+
+<script src="js/dashboard.js"></script>
+<script src="js/common.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="dashboard-bg">
+
+<header class="dashboard-header">
+    <h2>My Portfolio</h2>
+
+    <div class="user-info">
+        <span id="balance">₹ 0</span>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+</header>
+
+<div class="table-container">
+    <h2>Holdings</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Stock</th>
+                <th>Quantity</th>
+                <th>Avg Price</th>
+                <th>Invested</th>
+                <th>P / L</th>
+            </tr>
+        </thead>
+        <tbody id="portfolioBody"></tbody>
+    </table>
+
+    <a href="dashboard.html">⬅ Back to Dashboard</a>
+</div>
+
+<script src="js/portfolio.js"></script>
+
+<script>
+function logout() {
+    localStorage.clear();
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

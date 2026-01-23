@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transactions</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h2>Trade Transactions</h2>
+
+<table border="1" cellpadding="10">
+    <thead>
+        <tr>
+            <th>Stock</th>
+            <th>Type</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+    <tbody id="transactionBody"></tbody>
+</table>
+
+<br>
+<a href="dashboard.html">Back to Dashboard</a>
+
+<script>
+const BASE_URL = "http://localhost:8080";
+const token = localStorage.getItem("token");
+const userId = localStorage.getItem("userId");
+
+fetch(`${BASE_URL}/api/trade/history/${userId}`, {
+    headers: {
+        "Authorization": "Bearer " + token
+    }
+})
+.then(res => res.json())
+.then(data => {
+    const body = document.getElementById("transactionBody");
+    body.innerHTML = "";
+
+    data.forEach(t => {
+        const row = `
+            <tr>
+                <td>${t.stockSymbol}</td>
+                <td>${t.type}</td>
+                <td>${t.quantity}</td>
+                <td>${t.price}</td>
+                <td>${t.time}</td>
+            </tr>
+        `;
+        body.innerHTML += row;
+    });
+});
+</script>
+
+</body>
+</html>
